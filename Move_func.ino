@@ -10,11 +10,21 @@ void setup() {
   delay(3000);
 
   servoAttach();
-  forward(2000);
-  turnDR(130);
-  forward(3000);
-  turnDL(130);
-  forward(2000);
+  int t = accelerate(1);
+  forward(800-t);
+  deccelerate(1);
+
+  turnDL(120);
+  accelerate(1);
+  forward(1200-t);
+  deccelerate(1);
+
+  turnDR(120);
+
+  accelerate(1);
+  forward(800-t);
+  deccelerate(1);
+ 
 
   servoDisable();
 
@@ -30,11 +40,70 @@ void servoAttach(){
   servoR.attach(10);
 }
 
+int accelerate(int speed){ //returns time (how long it was running)
+  int  time = 0;
+  int trim= 5; //how long the delay in each itteration is
+  if(speed>0){ //If speed is posetive
+    for(int i = 0;i<200; i = i + speed){
+      servoL.writeMicroseconds(1500-i);
+      servoR.writeMicroseconds(1500+i);
+      delay(trim);
+      time= time +trim;
+     }
+    }
+  else{
+    for(int i = 0; i>-200; i = i + speed){
+      servoL.writeMicroseconds(1500-i);
+      servoR.writeMicroseconds(1500+i);
+      delay(trim);
+      time= time +trim;
+     }
+    }
+    return time;
+    }
+
+
+
+int deccelerate(int speed){
+  int time = 0;
+  int trim = 5;
+  if(speed<0){ //If speed is posetive
+    for(int i = 0;i<200; i = i - speed){
+      servoL.writeMicroseconds(1700-i);
+      servoR.writeMicroseconds(1300+i);
+      delay(trim);
+      time= time +trim;
+     }
+    }
+  else{
+    for(int i = 0; i<-200; i = i + speed){
+      servoL.writeMicroseconds(1300-i);
+      servoR.writeMicroseconds(1700+i);
+      delay(trim);
+      time= time +trim;
+     }
+    }
+    return time;
+    }
+  
+  
 void backward(int time) // Forward function
 {
+ 
 servoL.writeMicroseconds(1700); // Left wheel counterclockwise
 servoR.writeMicroseconds(1300); // Right wheel clockwise
 delay(time); // Maneuver for time ms
+
+servoStop();
+}
+
+void forward(int time) // Backward function
+{
+
+servoL.writeMicroseconds(1300); // Left wheel clockwise
+servoR.writeMicroseconds(1700); // Right wheel counterclockwise
+delay(time); // Maneuver for time ms
+
 servoStop();
 }
 
@@ -78,13 +147,7 @@ void turnDeg(int deg) // Right turn degrees
     }
 }
 
-void forward(int time) // Backward function
-{
-servoL.writeMicroseconds(1300); // Left wheel clockwise
-servoR.writeMicroseconds(1700); // Right wheel counterclockwise
-delay(time); // Maneuver for time ms
-servoStop();
-}
+
 
 void maneuver (int speedL, int speedR, int time){
   servoL.writeMicroseconds(1500 + speedL);
