@@ -91,7 +91,7 @@ int deccelerate(int speed){
     }
   
   
-void backward(int time) // Forward function
+void backward(int time) // Backward function
 {
  
 servoL.writeMicroseconds(1700); // Left wheel counterclockwise
