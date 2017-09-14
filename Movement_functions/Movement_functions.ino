@@ -1,4 +1,8 @@
-
+/* Collections of functions for moving the BOE bot
+ *  By: Emilie Karon Klefbom
+ *  September 14 2017
+ *  
+ */
 #include <Servo.h>
 
 Servo servoL;
