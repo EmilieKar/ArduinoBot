@@ -29,13 +29,13 @@ void setup() {
 
 void loop() {
   
-  if((wLeft == 0) && (wRight == 0)){
+  if(((wLeft == 0) && (wRight == 0))!){
     backward(1000);
     turnTL(800);
-  }else if(wLeft == 0){
+  }else if((wLeft == 0)!){
     backward(1000);
     turnTR(400);
-  }else if(wRight == 0){
+  }else if((wRight == 0)!){
     backward(1000);
     turnTL(400);
   }else{

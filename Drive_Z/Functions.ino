@@ -1,11 +1,4 @@
-void backward(int time) // Backward function
-{
-  servoL.writeMicroseconds(1700); // Left wheel counterclockwise
-  servoR.writeMicroseconds(1300); // Right wheel clockwise
-  delay(time); // Maneuver for time ms
-  
-  servoStop();
-}
+
 
 void turnServos(int speedL, int speedR){
   servoL.writeMicroseconds(1500-speedL);
@@ -17,11 +10,17 @@ void turnServos(int speed){
 }
 
 void straightAcceleration(int dir){
-  for(int i = 0; i < 100; i+= 5){
+  if(dir>0){
+    for(int i = 0; i < 100; i+= 5){
     turnServos(i*dir);
     delay(50);
+    }
+  }else{
+    for(int i = 0; i<100; i+=5){
+      turnServos(100-i);
+      delay(50);
+    }
   }
-  
 }
 
 void driveStraight(double distance){
@@ -44,13 +43,34 @@ void driveStraight(double distance){
   
 }
 
-void forward(int time) // Forward function
-{
-  servoL.writeMicroseconds(1300); // Left wheel clockwise
-  servoR.writeMicroseconds(1700); // Right wheel counterclockwise
-  delay(time); // Maneuver for time ms
+void pivitAcceleration(int dir, bool ad){
+  if(dir>0 && ad){
+    for(int i = 0; i<100; i+=5){
+      turnServos(i, 5);
+      delay(50);
+    }
+  }else if(dir <0 && ad){
+    for(int i = 0; i<100; i+=5){
+      turnServos(5, i);
+      delay(50);
+    }
+  }else if(dir <0){
+    for(int i = 0; i<100; i+=5){
+      turnServos(5, 100-i);
+      delay(50);
+    }
+  }else{
+    for(int i = 0; i<100; i+=5){
+      turnServos(100-i, 5);
+      delay(50);
+    }
+  }
   
-  servoStop();
+}
+void drivePivit(int dir){
+  pivitAcceleration(dir, true);
+  delay(1000);
+  pivitAcceleration(dir, false);
 }
 
 void servoDisable() // Halt servo signals

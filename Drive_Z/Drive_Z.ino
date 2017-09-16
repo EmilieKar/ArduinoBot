@@ -13,7 +13,14 @@ void setup() {
   tone(4, 500, 1000);
   delay(1000);
 
-  driveStraight(50);
+  servoAttach();
+
+driveStraight(50);
+drivePivit(1);
+driveStraight(50);
+drivePivit(-1);
+
+  servoDisable();
 
 }
 
