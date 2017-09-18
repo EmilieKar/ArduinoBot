@@ -50,6 +50,21 @@ void straightAcceleration(int dir){
   }
 }
 
+void turnTR(int time) // Right turn function
+{
+servoL.writeMicroseconds(1700); // Left wheel counterclockwise
+servoR.writeMicroseconds(1700); // Right wheel counterclockwise
+delay(time); // Maneuver for time ms
+servoStop();
+}
+
+void turnDR(int deg) // Right turn degrees
+{
+  int t = (deg / 0.176);
+  t -=25;
+  turnTR(t);
+}
+
 void driveStraight(double distance){
   int dir = 0;
   if(distance>0){
@@ -97,7 +112,7 @@ void pivitAcceleration(int dir, bool ad){
 void drivePivit(int dir, int deg){
   pivitAcceleration(dir, true);
   if(deg>60){
-    delay(deg / (0.20));
+    delay(deg/2);
   }
   pivitAcceleration(dir, false);
 }
