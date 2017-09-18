@@ -1,8 +1,10 @@
 
 
 void turnServos(int speedL, int speedR){
-  servoL.writeMicroseconds(1500-speedL);
-  servoR.writeMicroseconds(1500+speedR);
+  short Ltrim= -5;//trim is to conpensate for irregular movement
+  short Rtrim= 0;//it works in straitacceleration,needs aditional testing
+  servoL.writeMicroseconds(1500-speedL+Ltrim);
+  servoR.writeMicroseconds(1500+speedR+Rtrim);
 }
 
 void turnServos(int speed){
@@ -36,7 +38,7 @@ void driveTurn(int deg){
   
 }
 
-void straightAcceleration(int dir){
+void straightAcceleration(int dir){//the lenght of the acceleration is ~110mm at dir =1
   if(dir>0){
     for(int i = 0; i < 100; i+= 5){
     turnServos(i*dir);
@@ -109,6 +111,7 @@ void pivitAcceleration(int dir, bool ad){
   }
   
 }
+
 void drivePivit(int dir, int deg){
   pivitAcceleration(dir, true);
   if(deg>60){

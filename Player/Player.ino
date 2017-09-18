@@ -38,6 +38,7 @@ void play(int pin1,int pin2){
 
   tOld = millis();
   while(tones1[i != -1337] ||tones2[j != -1337] ){
+    
   if(tones1[i != -1337]){
     if(millis()-tOld>timings1[i]){
       tone(pin1,tones1[i],lengths1[i]);
@@ -45,7 +46,7 @@ void play(int pin1,int pin2){
     }
   }
 
-  if(false){
+    if(tones2[j != -1337]){
     if(millis()-tOld>timings2[j]){
       tone(pin2,tones2[j],lengths2[j]);
       j++;

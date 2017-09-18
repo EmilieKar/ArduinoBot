@@ -14,7 +14,10 @@ void setup() {
   delay(1000);
 
   servoAttach();
-
+pivitAcceleration(1, false);
+tone(4,500,1000);
+  
+/*
 driveStraight(17.5);
 drivePivit(-1,50);
 driveStraight(35);
@@ -29,7 +32,7 @@ drivePivit(-1,50);
 driveStraight(35);
 drivePivit(1,1300);
 driveStraight(17.5);
-
+*/
   servoDisable();
 
 }
