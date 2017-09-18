@@ -9,6 +9,33 @@ void turnServos(int speed){
   turnServos(speed, speed);
 }
 
+void turnAcceleration(int dir){
+  if(dir>0){
+    for(int i = 0; i < 100; i+= 5){
+    turnServos(i*dir, -i*dir);
+    delay(50);
+    }
+  }else{
+    for(int i = 0; i<100; i+=5){
+      turnServos(100-i, -(100-i));
+      delay(50);
+    }
+  }
+}
+
+void driveTurn(int deg){
+
+  
+  turnAcceleration(1);
+  turnServos(100,-100);
+  if(deg>60){
+    delay(deg / 0.176);
+  }
+  turnAcceleration(-1);
+  servoStop();
+  
+}
+
 void straightAcceleration(int dir){
   if(dir>0){
     for(int i = 0; i < 100; i+= 5){
@@ -67,9 +94,11 @@ void pivitAcceleration(int dir, bool ad){
   }
   
 }
-void drivePivit(int dir){
+void drivePivit(int dir, int deg){
   pivitAcceleration(dir, true);
-  delay(1000);
+  if(deg>60){
+    delay(deg / (0.20));
+  }
   pivitAcceleration(dir, false);
 }
 

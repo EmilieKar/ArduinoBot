@@ -15,10 +15,12 @@ void setup() {
 
   servoAttach();
 
+driveStraight(20);
+drivePivit(-1,120);
 driveStraight(50);
-drivePivit(1);
-driveStraight(50);
-drivePivit(-1);
+drivePivit(1,120);
+driveStraight(20);
+turnAcceleration(180);
 
   servoDisable();
 
