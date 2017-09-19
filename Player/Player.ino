@@ -30,14 +30,14 @@ pinMode(pin2,OUTPUT);
 void loop() {
   // put your main code here, to run repeatedly:
 delay(2000);
-play(pin1,pin2);
+play(pin1);
 }
 
-void play(int pin1,int pin2){
+void play(int pin1){
 
 
   tOld = millis();
-  while(tones1[i != -1337] ||tones2[j != -1337] ){
+  while(tones1[i != -1337]  ){
     
   if(tones1[i != -1337]){
     if(millis()-tOld>timings1[i]){
@@ -46,12 +46,7 @@ void play(int pin1,int pin2){
     }
   }
 
-    if(tones2[j != -1337]){
-    if(millis()-tOld>timings2[j]){
-      tone(pin2,tones2[j],lengths2[j]);
-      j++;
-    }
-  }
+
 
 
 	
