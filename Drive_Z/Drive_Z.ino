@@ -1,5 +1,5 @@
 /* Code for driving the BO bot in a Z formation
- *  By Emilie Karon Klefbom 
+ *  By Emilie Karon Klefbom  and David Johansson
  *  September 14 2017
  *  v 1.0
  */
