@@ -14,20 +14,6 @@ void setup() {
   delay(3000);
 
   servoAttach();
-  int t = accelerate(1);
-  forward(800-t);
-  deccelerate(1);
-
-  turnDL(120);
-  accelerate(1);
-  forward(1200-t);
-  deccelerate(1);
-
-  turnDR(120);
-
-  accelerate(1);
-  forward(800-t);
-  deccelerate(1);
  
 
   servoDisable();
