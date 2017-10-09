@@ -15,7 +15,7 @@ void forward() // Backward function
 {
 
 servoL.writeMicroseconds(1450); // Left wheel clockwise
-servoR.writeMicroseconds(1550-2); // Right wheel counterclockwise
+servoR.writeMicroseconds(1550-5); // Right wheel counterclockwise
 
 }
 
