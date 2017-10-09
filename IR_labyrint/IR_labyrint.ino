@@ -16,7 +16,7 @@ void setup()                                 // Built-in initialization block
   pinMode(7, OUTPUT);
  pinMode(6, OUTPUT);
  digitalWrite(6,LOW);
- digital
+// digital
   servoAttach();
 }
   
@@ -35,8 +35,8 @@ void loop()                                  // Main loop auto-repeats
   }
 
   if(irLeft==1 && irRight==1){
-    digitalWrite(7,HIGH);
-    digitalWrite(6,HIGH);
+    digitalWrite(7,LOW);
+    digitalWrite(6,LOW);
     forward();
   }else if(irLeft==1 && irRight==0){
       maneuver(90,-10);
@@ -50,7 +50,7 @@ void loop()                                  // Main loop auto-repeats
   else{
     backwards();
     digitalWrite(7,HIGH);
-    digitalWrite(6,LOW);
+    digitalWrite(6,HIGH);
     delay(100);
     
     }
