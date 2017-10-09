@@ -15,16 +15,16 @@ void forward() // Backward function
 {
 
 servoL.writeMicroseconds(1450); // Left wheel clockwise
-servoR.writeMicroseconds(1550); // Right wheel counterclockwise
+servoR.writeMicroseconds(1550-2); // Right wheel counterclockwise
 
 }
 
 void turnTL(int time) // Left turn function
 {
-servoL.writeMicroseconds(1400); // Left wheel clockwise
-servoR.writeMicroseconds(1400); // Right wheel clockwise
+servoL.writeMicroseconds(1450); // Left wheel clockwise
+servoR.writeMicroseconds(1450); // Right wheel clockwise
 delay(time); // Maneuver for time ms
-servoStop();
+
 }
 
 void turnDL(int deg) // Right turn degrees
@@ -36,10 +36,10 @@ void turnDL(int deg) // Right turn degrees
 
 void turnTR(int time) // Right turn function
 {
-servoL.writeMicroseconds(1600); // Left wheel counterclockwise
-servoR.writeMicroseconds(1600); // Right wheel counterclockwise
+servoL.writeMicroseconds(1550); // Left wheel counterclockwise
+servoR.writeMicroseconds(1550); // Right wheel counterclockwise
 delay(time); // Maneuver for time ms
-servoStop();
+
 }
 
 void turnDR(int deg) // Right turn degrees
