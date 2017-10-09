@@ -2,12 +2,15 @@
  Servo servoL;
  Servo servoR;
  double lastTime,lastInc; 
- boolean lightsOff=true;
  int irLeft, irRight;
    int i = 0;
   int old = 0;
   boolean right;
   
+float volts(int adPin)                       // Measures volts at adPin 
+{                                            // Returns floating point voltage  
+  return float(analogRead(adPin)) * 5.0 / 1024.0; 
+  }   
  
 void setup()                                 // Built-in initialization block
 {
@@ -29,7 +32,12 @@ void setup()                                 // Built-in initialization block
  
 void loop()                                  // Main loop auto-repeats
 {
-  if(lightsOff){
+  if(volts(A3) > 0.37)                        // If A3 voltage greater than 3.5
+  {
+    servoL.detach();                      // Stop servo signals     
+    servoR.detach();
+
+}else{
     
   
   if(millis()>(lastTime+50)){                //makes a delay of 5ms 
