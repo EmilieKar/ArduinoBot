@@ -48,30 +48,6 @@ void loop()                                  // Main loop auto-repeats
     Serial.println(irRight);
     
   }
- /* 
-  if(irLeft==1 && irRight==1){
-    digitalWrite(7,LOW);
-    digitalWrite(6,LOW);
-    forward();
-  }else if(irLeft==1 && irRight==0){
-      maneuver(100,-100);
-      digitalWrite(7,LOW);
-      digitalWrite(6,HIGH);
-  }else if(irLeft==0 && irRight==1){
-      maneuver(-100,100);
-      digitalWrite(7,HIGH);
-      digitalWrite(6,LOW);
-  }
-  else{
-    backwards();
-    digitalWrite(7,HIGH);
-    digitalWrite(6,HIGH);
-    delay(100);
-    
-    }
-    
-
-*/
 
   if (i >=4){
     if(right){
